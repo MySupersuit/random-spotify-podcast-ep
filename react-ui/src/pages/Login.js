@@ -4,7 +4,7 @@ require('dotenv').config();
 
 const Login = () => {
   const CLIENT_HACK = 'f2765d597ca344f0874bf7e6e529415c';
-  const REDIRECT_URI = 'https://polar-journey-36336.herokuapp.com/main';
+  const REDIRECT_URI = 'https://random-spotify-ep.herokuapp.com/main';
   // const LOCAL_REDIRECT_URI = 'http://localhost:3001/main';
   const AUTH_URL = `https://accounts.spotify.com/authorize?response_type=code&client_id=${CLIENT_HACK}&scope=user-read-private%20user-read-email&redirect_uri=${REDIRECT_URI}&show_dialog=false`;
 
