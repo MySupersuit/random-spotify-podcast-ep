@@ -1,16 +1,16 @@
-const express = require('express');
-const SpotifyWebApi = require('spotify-web-api-node');
-const cors = require('cors');
-const bodyParser = require('body-parser');
-const app = express();
-const path = require('path');
+import express from 'express';
+import SpotifyWebApi from 'spotify-web-api-node';
+import cors from 'cors';
+import { json } from 'body-parser';
+import { resolve } from 'path';
 require('dotenv').config();
+const app = express();
 app.use(cors());
-app.use(bodyParser.json());
-app.use(express.static(path.resolve(__dirname, '../react-ui/build')));
+app.use(json());
+app.use(express.static(resolve(__dirname, '../react-ui/build')));
 
 app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, '../react-ui/build', 'index.html'));
+  res.sendFile(resolve(__dirname, '../react-ui/build', 'index.html'));
 });
 
 app.get('/test', (req, res) => {

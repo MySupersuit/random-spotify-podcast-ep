@@ -32,7 +32,6 @@ const Dashboard = ({ code }) => {
 
     let cancel = false;
     spotifyApi.searchShows(search).then(res => {
-      // console.log(res.body);
       if (cancel) return;
       const results = res.body.shows.items.map(show => {
         const smallestImage = show.images.reduce((smallest, image) => {
@@ -56,7 +55,6 @@ const Dashboard = ({ code }) => {
           total_episodes: show.total_episodes,
         };
       });
-      console.log(results);
       setSearchResults(results);
     });
     return () => (cancel = true);
