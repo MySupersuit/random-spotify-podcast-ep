@@ -2,7 +2,6 @@ import React from 'react';
 
 const ShowSearchResult = ({ show, chooseShow }) => {
   const handlePlay = () => {
-    console.log(`${show.name} chosen`);
     chooseShow(show);
   };
 

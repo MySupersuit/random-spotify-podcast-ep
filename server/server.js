@@ -36,14 +36,12 @@ app.post('/refresh', (req, res) => {
       });
     })
     .catch(err => {
-      console.log('coudl not refresh access token', err);
+      console.log('could not refresh access token', err);
       res.sendStatus(400);
     });
 });
 
 app.post('/login', (req, res) => {
-  console.log(req.body);
-  console.log(req);
   const code = req.body.code;
   const spotifyApi = new SpotifyWebApi({
     redirectUri: process.env.REDIRECT_URI,
@@ -61,7 +59,6 @@ app.post('/login', (req, res) => {
       });
     })
     .catch(err => {
-      console.log('sup');
       console.log(err);
       res.sendStatus(400);
     });
@@ -70,8 +67,4 @@ app.post('/login', (req, res) => {
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
-  console.log('Environment Variables');
-  console.log(process.env.REDIRECT_URI);
-  console.log(process.env.CLIENT_ID);
-  console.log(process.env.CLIENT_SECRET);
 });

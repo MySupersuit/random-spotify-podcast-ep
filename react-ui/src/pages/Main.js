@@ -8,7 +8,6 @@ const Main = () => {
 
   const getCode = () => {
     const urlParams = new URLSearchParams(window.location.search);
-    console.log('code', urlParams.get('code'));
     return urlParams.get('code');
   };
 

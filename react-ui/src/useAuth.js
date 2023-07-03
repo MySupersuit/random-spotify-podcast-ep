@@ -10,22 +10,11 @@ export default function useAuth(code) {
   const baseUrl = ""
 
   useEffect(() => {
-    console.log('login called');
     const url = `${baseUrl}/login`
-    console.log(`going to ${url}`);
     axios
       .post(`${url}`, {
         code,
       })
-    // fetch(`${baseUrl}/test`).then(res => {
-    //   console.log(res);
-    // })
-    // fetch(`${baseUrl}/login`, {
-    //   method: "POST",
-    //   body: JSON.stringify({code}),
-    //   referrer: "",
-    //   'user-agent': "",
-    // })
       .then(res => {
         setAccessToken(res.data.accessToken);
         Cookies.set('spotifyAccessToken', res.data.accessToken);
@@ -41,9 +30,7 @@ export default function useAuth(code) {
   }, [code]);
 
   useEffect(() => {
-    console.log('refresh token called');
     if (!refreshToken || !expiresIn) return;
-    console.log('refresh token executed');
     const interval = setInterval(() => {
       axios
         .post(`${baseUrl}/refresh`, {
