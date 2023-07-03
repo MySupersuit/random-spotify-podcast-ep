@@ -14,6 +14,7 @@ app.get('*', (req, res) => {
 });
 
 app.get('/test', (req, res) => {
+  console.log('sup');
   res.send('<h1>working</h1>');
 });
 
@@ -41,7 +42,8 @@ app.post('/refresh', (req, res) => {
 });
 
 app.post('/login', (req, res) => {
-  console.log(req.body.code);
+  console.log(req.body);
+  console.log(req);
   const code = req.body.code;
   const spotifyApi = new SpotifyWebApi({
     redirectUri: process.env.REDIRECT_URI,
