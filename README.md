@@ -4,6 +4,6 @@
 
 React website which returns a random episode of a given podcast.
 
-React + Express + [Render](https://render.com/)
+React + Express + [Render](https://render.com/) (maybe Vercel)
 
 <img src="./images/main.png" height=500/>
